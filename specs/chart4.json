@@ -11,11 +11,38 @@
   },
   "projection": {
     "type": "mercator",
-    "center": [
-      133,
-      -28
-    ],
-    "scale": 310
+    "fit": {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                112.9,
+                -9.4
+              ],
+              [
+                153.6,
+                -9.4
+              ],
+              [
+                153.6,
+                -43.6
+              ],
+              [
+                112.9,
+                -43.6
+              ],
+              [
+                112.9,
+                -9.4
+              ]
+            ]
+          ]
+        ]
+      }
+    }
   },
   "layer": [
     {
