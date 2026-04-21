@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 280,
+  "title": {
+    "text": "Flood insured losses in Australia (1984–2025)",
+    "subtitle": "Normalised to 2022 AUD billions. The 2022 La Niña floods were the costliest on record.",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart10_flood_losses.csv"},
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#378ADD"},
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal",
+          "axis": {"labelAngle": -45, "title": null}
+        },
+        "y": {
+          "field": "loss_b", "type": "quantitative",
+          "axis": {"title": "Insured loss (A$ billions)", "grid": true}
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "loss_b", "type": "quantitative", "title": "Loss (A$B)", "format": ".3f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.year === 2022"}],
+      "mark": {"type": "text", "dy": -10, "fontSize": 11, "color": "#0C447C", "fontWeight": "bold"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "loss_b", "type": "quantitative"},
+        "text": {"value": "A$8.25B — costliest flood ever"}
+      }
+    }
+  ]
+}

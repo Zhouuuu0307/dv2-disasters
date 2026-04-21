@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 260,
+  "title": {
+    "text": "Major heatwave events and death toll (1993–2018)",
+    "subtitle": "Australia's heatwaves are becoming more deadly as temperatures rise",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart12_heatwave.csv"},
+  "transform": [{"filter": "datum.deaths > 0"}],
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#E24B4A", "width": 18},
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal",
+          "axis": {"title": null}
+        },
+        "y": {
+          "field": "deaths", "type": "quantitative",
+          "axis": {"title": "Deaths", "grid": true}
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "location", "type": "nominal", "title": "Location"},
+          {"field": "deaths", "type": "quantitative", "title": "Deaths"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": -10, "fontSize": 10, "color": "#791F1F"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "deaths", "type": "quantitative"},
+        "text": {"field": "deaths", "type": "quantitative"}
+      }
+    }
+  ]
+}

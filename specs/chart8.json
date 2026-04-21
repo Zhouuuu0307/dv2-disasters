@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 300,
+  "title": {
+    "text": "Major bushfire events in Australia (1939–2026)",
+    "subtitle": "Bubble size = economic damage. Hover for details.",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart8_bushfire_events.csv"},
+  "transform": [{"filter": "datum.deaths > 0"}],
+  "mark": {"type": "point", "filled": true, "opacity": 0.8},
+  "encoding": {
+    "x": {
+      "field": "year", "type": "quantitative",
+      "axis": {"title": "Year", "format": "d"}
+    },
+    "y": {
+      "field": "deaths", "type": "quantitative",
+      "axis": {"title": "Deaths", "grid": true}
+    },
+    "size": {
+      "field": "damage_m_usd", "type": "quantitative",
+      "title": "Damage (USD M)",
+      "scale": {"range": [30, 1200]},
+      "legend": null
+    },
+    "color": {"value": "#D85A30"},
+    "tooltip": [
+      {"field": "event_label", "type": "nominal", "title": "Location"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
+      {"field": "deaths", "type": "quantitative", "title": "Deaths"},
+      {"field": "damage_m_usd", "type": "quantitative", "title": "Damage (USD M)", "format": ",.0f"}
+    ]
+  }
+}

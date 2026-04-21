@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 420,
+  "title": {
+    "text": "Insured disaster losses by state (1980–2026)",
+    "subtitle": "Normalised to 2022 AUD billions — ICA catastrophe data",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/australia_states_simple.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 1},
+      "transform": [
+        {
+          "lookup": "properties.state_name",
+          "from": {
+            "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart4_choropleth.csv"},
+            "key": "state_name",
+            "fields": ["total_loss_b", "event_count", "total_claims"]
+          }
+        }
+      ],
+      "encoding": {
+        "color": {
+          "field": "total_loss_b",
+          "type": "quantitative",
+          "title": "Loss (A$ billion)",
+          "scale": {"scheme": "orangered", "domain": [0, 35]},
+          "condition": {"test": "datum.total_loss_b === null", "value": "#e8e6e0"}
+        },
+        "tooltip": [
+          {"field": "properties.state_name", "type": "nominal", "title": "State"},
+          {"field": "total_loss_b", "type": "quantitative", "title": "Total loss (A$B)", "format": ".2f"},
+          {"field": "event_count", "type": "quantitative", "title": "Events"},
+          {"field": "total_claims", "type": "quantitative", "title": "Claims", "format": ","}
+        ]
+      }
+    }
+  ]
+}

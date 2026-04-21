@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "title": {
+    "text": "Deaths by disaster type (1960–2024)",
+    "fontSize": 15,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart2_donut.csv"},
+  "mark": {"type": "arc", "innerRadius": 80, "outerRadius": 140},
+  "encoding": {
+    "theta": {"field": "total_deaths", "type": "quantitative"},
+    "color": {
+      "field": "disaster_type", "type": "nominal",
+      "title": "Disaster type",
+      "scale": {
+        "domain": ["Bushfire","Flood","Storm/Cyclone","Drought","Heatwave","Earthquake","Landslide","Other"],
+        "range":  ["#D85A30","#378ADD","#7F77DD","#BA7517","#E24B4A","#888780","#1D9E75","#B4B2A9"]
+      }
+    },
+    "tooltip": [
+      {"field": "disaster_type", "type": "nominal", "title": "Type"},
+      {"field": "total_deaths", "type": "quantitative", "title": "Total deaths"},
+      {"field": "event_count", "type": "quantitative", "title": "Events"},
+      {"field": "total_affected", "type": "quantitative", "title": "People affected", "format": ","}
+    ]
+  }
+}

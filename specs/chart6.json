@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 420,
+  "title": {
+    "text": "Tropical cyclone tracks across Australia (1980–2026)",
+    "subtitle": "Each line is one cyclone. Colour shows maximum wind intensity.",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/australia_states_simple.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e8e6e0", "stroke": "#ffffff", "strokeWidth": 0.8}
+    },
+    {
+      "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart6_cyclone_tracks.csv"},
+      "mark": {"type": "line", "strokeWidth": 1, "opacity": 0.6},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "detail":    {"field": "id", "type": "nominal"},
+        "color": {
+          "field": "category", "type": "nominal",
+          "title": "Category",
+          "scale": {
+            "domain": ["Tropical Low","Cat 1","Cat 2","Cat 3","Cat 4","Cat 5"],
+            "range":  ["#B5D4F4","#7F77DD","#534AB7","#D85A30","#A32D2D","#501313"]
+          }
+        },
+        "tooltip": [
+          {"field": "name", "type": "nominal", "title": "Name"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "category", "type": "nominal", "title": "Category"},
+          {"field": "max_wind_knots", "type": "quantitative", "title": "Max wind (knots)"}
+        ]
+      }
+    }
+  ]
+}

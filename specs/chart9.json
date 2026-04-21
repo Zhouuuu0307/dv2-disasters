@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 320,
+  "height": 320,
+  "title": {
+    "text": "Cyclone season: when do they form?",
+    "subtitle": "Number of cyclones by start month (1970–2026)",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart9_cyclone_rose.csv"},
+  "transform": [
+    {"calculate": "(datum.month - 1) / 12 * 2 * PI", "as": "theta_start"},
+    {"calculate": "datum.month / 12 * 2 * PI", "as": "theta_end"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 30},
+      "encoding": {
+        "theta":  {"field": "theta_start", "type": "quantitative", "scale": {"domain": [0, 6.283185]}},
+        "theta2": {"field": "theta_end",   "type": "quantitative"},
+        "radius": {
+          "field": "cyclone_count", "type": "quantitative",
+          "scale": {"range": [30, 150]}
+        },
+        "color": {
+          "field": "cyclone_count", "type": "quantitative",
+          "scale": {"scheme": "bluepurple"},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "month_name", "type": "nominal", "title": "Month"},
+          {"field": "cyclone_count", "type": "quantitative", "title": "Cyclones"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "radiusOffset": 18, "fontSize": 11},
+      "encoding": {
+        "theta": {
+          "field": "theta_start", "type": "quantitative",
+          "scale": {"domain": [0, 6.283185]},
+          "bandPosition": 0.5
+        },
+        "radius": {
+          "field": "cyclone_count", "type": "quantitative",
+          "scale": {"range": [30, 150]}
+        },
+        "text": {"field": "month_name", "type": "nominal"}
+      }
+    }
+  ]
+}

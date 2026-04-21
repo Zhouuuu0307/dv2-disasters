@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 300,
+  "title": {
+    "text": "Rising temperatures and more disasters (1960–2024)",
+    "subtitle": "Australia's annual temperature anomaly (bars) vs recorded disaster events (line)",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart11_temp_disasters.csv"},
+  "transform": [{"filter": "datum.year >= 1967"}],
+  "resolve": {"scale": {"y": "independent"}},
+  "layer": [
+    {
+      "mark": {"type": "bar", "opacity": 0.7},
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal",
+          "axis": {"labelAngle": -45, "tickCount": 10, "title": null}
+        },
+        "y": {
+          "field": "temp_anomaly_c", "type": "quantitative",
+          "axis": {"title": "Temp anomaly (°C vs 1961–1990)", "titleColor": "#D85A30"},
+          "scale": {"domain": [-1, 2]}
+        },
+        "color": {
+          "condition": {"test": "datum.temp_anomaly_c >= 0", "value": "#D85A30"},
+          "value": "#378ADD"
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "temp_anomaly_c", "type": "quantitative", "title": "Temp anomaly (°C)", "format": ".2f"},
+          {"field": "event_count", "type": "quantitative", "title": "Disasters recorded"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "#7F77DD", "strokeWidth": 2.5, "interpolate": "monotone"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {
+          "field": "event_count", "type": "quantitative",
+          "axis": {"title": "Disaster events per year", "titleColor": "#7F77DD"}
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "color": "#7F77DD", "size": 30, "filled": true},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "event_count", "type": "quantitative"}
+      }
+    }
+  ]
+}

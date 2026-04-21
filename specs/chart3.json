@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 280,
+  "title": {
+    "text": "Economic losses from natural disasters (1981–2024)",
+    "subtitle": "Inflation-adjusted total damage in USD millions",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart3_losses.csv"},
+  "transform": [
+    {"filter": "datum.damage_m_usd > 0"},
+    {"filter": "datum.disaster_type !== 'Other' && datum.disaster_type !== 'Landslide' && datum.disaster_type !== 'Earthquake'"}
+  ],
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {
+      "field": "year", "type": "ordinal",
+      "axis": {"labelAngle": -45, "tickCount": 10, "title": null}
+    },
+    "y": {
+      "field": "damage_m_usd", "type": "quantitative",
+      "stack": "zero",
+      "axis": {"title": "Damage (USD millions)", "grid": true}
+    },
+    "color": {
+      "field": "disaster_type", "type": "nominal",
+      "title": "Disaster type",
+      "scale": {
+        "domain": ["Bushfire","Flood","Storm/Cyclone","Drought","Heatwave"],
+        "range":  ["#D85A30","#378ADD","#7F77DD","#BA7517","#E24B4A"]
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "disaster_type", "type": "nominal", "title": "Type"},
+      {"field": "damage_m_usd", "type": "quantitative", "title": "Damage (USD M)", "format": ",.0f"}
+    ]
+  }
+}
