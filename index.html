@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When Nature Strikes: Australia's Disaster Landscape</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf9f6;
+      color: #1a1917;
+      line-height: 1.7;
+    }
+
+    .page { max-width: 980px; margin: 0 auto; padding: 60px 32px 80px; }
+
+    /* ── Hero ── */
+    .hero { border-bottom: 3px solid #1a1917; padding-bottom: 32px; margin-bottom: 48px; }
+    .hero-kicker {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #D85A30; font-weight: 700; margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: 3rem; font-weight: 700; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero .deck {
+      font-size: 1.2rem; color: #444; max-width: 640px; line-height: 1.6;
+    }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 64px; }
+    .section-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #888; margin-bottom: 8px;
+    }
+    .section h2 {
+      font-size: 1.7rem; font-weight: 700; line-height: 1.2;
+      margin-bottom: 12px; border-top: 2px solid #1a1917; padding-top: 14px;
+    }
+    .section p {
+      font-size: 1rem; max-width: 680px; color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* ── Two-column layout ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+
+    /* ── Chart containers ── */
+    .chart-wrap { margin: 8px 0 0; }
+    .chart-caption {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px; color: #888; margin-top: 8px;
+    }
+
+    /* ── Key stat callouts ── */
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 28px 0; }
+    .stat-card {
+      border-top: 3px solid #D85A30; padding-top: 12px;
+    }
+    .stat-card .num {
+      font-size: 2.4rem; font-weight: 700; line-height: 1; color: #D85A30;
+    }
+    .stat-card .label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px; color: #555; margin-top: 4px; line-height: 1.4;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #ccc; padding-top: 20px; margin-top: 64px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px; color: #888; line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <div class="hero-kicker">Data Visualisation 2 · FIT2179 · Monash University</div>
+    <h1>When nature strikes:<br>Australia's disaster landscape</h1>
+    <p class="deck">
+      Australia is one of the world's most disaster-prone nations — battered by bushfires,
+      floods, cyclones and heatwaves year after year. As the climate warms, these events
+      are becoming more frequent and more costly. This visualisation explores six decades
+      of natural disaster data to reveal where, when and how hard nature hits.
+    </p>
+  </header>
+
+  <!-- ══ SECTION 1 — OVERVIEW ══ -->
+  <section class="section">
+    <div class="section-label">Section 1 — The big picture</div>
+    <h2>Disasters are becoming more frequent</h2>
+    <p>
+      Since 1960, Australia has recorded over 230 significant natural disasters.
+      Storms and cyclones are the most common, but floods and bushfires cause
+      disproportionate deaths. The 2010s saw a sharp rise in recorded events,
+      reflecting both more extreme weather and improved reporting.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num">230+</div>
+        <div class="label">significant disasters recorded since 1960</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2,200+</div>
+        <div class="label">deaths from natural disasters since 1960</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">A$45B+</div>
+        <div class="label">insured losses since 1980 (normalised)</div>
+      </div>
+    </div>
+
+    <div class="chart-wrap" id="chart1"></div>
+    <p class="chart-caption">Source: EM-DAT, CRED / UCLouvain (2026). Events with at least 10 deaths, 100 affected, or declared emergency.</p>
+
+    <div class="two-col" style="margin-top:40px;">
+      <div>
+        <p>Drought and heatwaves account for the most deaths relative to event count —
+        the 2009 Black Saturday fires killed 173 people in a single day, and the
+        2009 Victorian heatwave killed 347.</p>
+        <div class="chart-wrap" id="chart2"></div>
+        <p class="chart-caption">Deaths by disaster type, 1960–2024. Source: EM-DAT.</p>
+      </div>
+      <div>
+        <p>Economic losses have grown dramatically since the 1980s. The 2022
+        south-east Queensland and NSW floods caused A$8.25 billion in insured losses
+        alone — the costliest flood event in Australian history.</p>
+        <div class="chart-wrap" id="chart3"></div>
+        <p class="chart-caption">Adjusted total damage in USD millions. Source: EM-DAT.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2 — GEOGRAPHY ══ -->
+  <section class="section">
+    <div class="section-label">Section 2 — Geography of disaster</div>
+    <h2>Queensland bears the heaviest burden</h2>
+    <p>
+      Queensland experiences more insured catastrophes than any other state,
+      driven by its tropical cyclone season in the north and recurring floods
+      across the southeast. The map below shows total insured losses by state
+      since 1980 — Queensland accounts for over 70% of the national total.
+    </p>
+
+    <div class="chart-wrap" id="chart4"></div>
+    <p class="chart-caption">Insured losses normalised to 2022 AUD. States with no ICA data shown in grey. Source: Insurance Council of Australia, Historical Catastrophe List (Feb 2026).</p>
+
+    <p style="margin-top:32px;">
+      Tropical cyclones form in warm waters north and northwest of Australia,
+      then track south and east — many making landfall along the Queensland
+      and Western Australian coasts. The busiest cyclone corridor runs
+      along the Gulf of Carpentaria and the Coral Sea.
+    </p>
+
+    <div class="chart-wrap" id="chart6"></div>
+    <p class="chart-caption">Track data for 240 significant cyclones (max wind ≥ 34 knots), 1980–2026. Source: Bureau of Meteorology, Tropical Cyclone Database.</p>
+  </section>
+
+  <!-- ══ SECTION 3 — BUSHFIRES ══ -->
+  <section class="section">
+    <div class="section-label">Section 3 — Bushfires</div>
+    <h2>Bushfires: deadly, costly and intensifying</h2>
+    <p>
+      Bushfires have claimed more Australian lives than any other disaster type
+      per event. The 2009 Black Saturday fires in Victoria killed 173 people —
+      Australia's deadliest peacetime disaster. The 2019–20 Black Summer fires
+      burned 18.6 million hectares and caused an estimated A$4.4 billion in damage,
+      with smoke affecting millions across eastern Australia.
+    </p>
+
+    <div class="chart-wrap" id="chart8"></div>
+    <p class="chart-caption">Bushfire events with recorded fatalities. Bubble size = economic damage. Source: EM-DAT.</p>
+  </section>
+
+  <!-- ══ SECTION 4 — FLOODS & CYCLONES ══ -->
+  <section class="section">
+    <div class="section-label">Section 4 — Floods and cyclones</div>
+    <h2>Floods cause the most economic damage</h2>
+    <p>
+      While cyclones are most frequent, floods consistently cause the greatest
+      economic losses. The 2022 floods were triggered by a rare triple La Niña
+      event, inundating hundreds of communities across southeastern Australia.
+      Cyclones follow a strong seasonal pattern, peaking from December to March.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <div class="chart-wrap" id="chart9"></div>
+        <p class="chart-caption">Monthly distribution of cyclone formation, 1970–2026. Source: Bureau of Meteorology.</p>
+      </div>
+      <div>
+        <div class="chart-wrap" id="chart10"></div>
+        <p class="chart-caption">Flood insured losses, normalised to 2022 AUD billions. Source: Insurance Council of Australia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5 — CLIMATE ══ -->
+  <section class="section">
+    <div class="section-label">Section 5 — The climate connection</div>
+    <h2>A warming Australia means more disasters</h2>
+    <p>
+      Australia has warmed by 1.51°C since national records began in 1910.
+      The warmest years on record have all occurred since 2013. As temperatures
+      rise, fire weather becomes more dangerous, rainfall events more intense,
+      and heatwaves more deadly. The correlation between temperature anomalies
+      and disaster frequency is stark.
+    </p>
+
+    <div class="chart-wrap" id="chart11"></div>
+    <p class="chart-caption">
+      Bars show annual mean temperature anomaly relative to 1961–1990 baseline (red = above average, blue = below).
+      Purple line shows number of significant disaster events per year.
+      Source: Bureau of Meteorology ACORN-SAT; EM-DAT.
+    </p>
+
+    <p style="margin-top:32px;">
+      Heatwaves are Australia's deadliest hazard when measured by total excess mortality.
+      The 2009 south-east Australian heatwave killed 347 people — more than
+      the Black Saturday fires that followed days later.
+    </p>
+
+    <div class="chart-wrap" id="chart12"></div>
+    <p class="chart-caption">Deaths from recorded heatwave events. The 2009 Victorian heatwave remains Australia's deadliest. Source: EM-DAT.</p>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <strong>Data sources:</strong>
+    EM-DAT, CRED / UCLouvain, Brussels (emdat.be, accessed April 2026) ·
+    Insurance Council of Australia, Historical Normalised Catastrophe List, February 2026 ·
+    Bureau of Meteorology, Tropical Cyclone Database (bom.gov.au/clim_data/IDCKMSTM0S.csv) ·
+    Bureau of Meteorology, ACORN-SAT Temperature Timeseries ·
+    Australian Bureau of Statistics, ASGS State Boundaries 2021 (GDA94)
+    <br><br>
+    <strong>Author:</strong> [Your Name] · FIT2179 Data Visualisation 2 · Monash University · May 2026
+  </footer>
+
+</div>
+
+<script>
+  const opt = {actions: false, renderer: "svg"};
+  vegaEmbed('#chart1',  'specs/chart1.json',  opt);
+  vegaEmbed('#chart2',  'specs/chart2.json',  opt);
+  vegaEmbed('#chart3',  'specs/chart3.json',  opt);
+  vegaEmbed('#chart4',  'specs/chart4.json',  opt);
+  vegaEmbed('#chart6',  'specs/chart6.json',  opt);
+  vegaEmbed('#chart8',  'specs/chart8.json',  opt);
+  vegaEmbed('#chart9',  'specs/chart9.json',  opt);
+  vegaEmbed('#chart10', 'specs/chart10.json', opt);
+  vegaEmbed('#chart11', 'specs/chart11.json', opt);
+  vegaEmbed('#chart12', 'specs/chart12.json', opt);
+</script>
+</body>
+</html>
