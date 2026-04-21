@@ -10,39 +10,16 @@
     "anchor": "start"
   },
   "projection": {
-    "type": "mercator",
-    "fit": {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiPolygon",
-        "coordinates": [
-          [
-            [
-              [
-                112.9,
-                -9.4
-              ],
-              [
-                153.6,
-                -9.4
-              ],
-              [
-                153.6,
-                -43.6
-              ],
-              [
-                112.9,
-                -43.6
-              ],
-              [
-                112.9,
-                -9.4
-              ]
-            ]
-          ]
-        ]
-      }
-    }
+    "type": "equirectangular",
+    "center": [
+      133.5,
+      -27
+    ],
+    "scale": 900,
+    "translate": [
+      350,
+      210
+    ]
   },
   "layer": [
     {
