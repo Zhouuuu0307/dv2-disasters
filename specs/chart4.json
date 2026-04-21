@@ -2,26 +2,38 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 420,
+
   "title": {
-    "text": "Insured disaster losses by state (1980\u20132026)",
-    "subtitle": "Normalised to 2022 AUD billions \u2014 ICA catastrophe data",
+    "text": "Insured disaster losses by state (1980–2026)",
+    "subtitle": "Normalised to 2022 AUD billions — ICA catastrophe data",
     "fontSize": 15,
     "subtitleFontSize": 12,
     "anchor": "start"
   },
+
   "projection": {
-    "type": "equirectangular",
-    "center": [
-      133.5,
-      -27
-    ],
-    "scale": 650,
-    "translate": [
-      350,
-      210
-    ]
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 700,
+    "translate": [350, 210]
   },
+
   "layer": [
+    {
+      "data": {
+        "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/australia_states_simple.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d8d5cc",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      }
+    },
     {
       "data": {
         "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/australia_states_simple.geojson",
@@ -38,12 +50,11 @@
               "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart4_choropleth.csv"
             },
             "key": "state_name",
-            "fields": [
-              "total_loss_b",
-              "event_count",
-              "total_claims"
-            ]
+            "fields": ["total_loss_b", "event_count", "total_claims"]
           }
+        },
+        {
+          "filter": "isValid(datum.total_loss_b)"
         }
       ],
       "mark": {
@@ -58,14 +69,10 @@
           "title": "Loss (A$B)",
           "scale": {
             "scheme": "orangered",
-            "domain": [
-              0,
-              35
-            ]
+            "domain": [0, 35]
           },
-          "condition": {
-            "test": "!isValid(datum.total_loss_b)",
-            "value": "#d8d5cc"
+          "legend": {
+            "orient": "right"
           }
         },
         "tooltip": [
@@ -94,5 +101,12 @@
         ]
       }
     }
-  ]
+  ],
+
+  "config": {
+    "background": "#faf9f6",
+    "view": {
+      "stroke": null
+    }
+  }
 }
