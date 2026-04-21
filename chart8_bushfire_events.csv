@@ -1,0 +1,41 @@
+year,event_name,location,deaths,affected,damage_adj_000usd,subtype,damage_m_usd,event_label
+1939,,Victoria (New South Wales),71.0,3900.0,,"Land fire (Brush, Bush, Pasture)",,Victoria (New South Wales)
+1944,,Western District Victoria,49.0,2100.0,,"Land fire (Brush, Bush, Pasture)",,Western District Victoria
+1967,,Hobart (Tasmania),62.0,3100.0,644147.0,"Land fire (Brush, Bush, Pasture)",644.1,Hobart (Tasmania)
+1968,,New South Wales,12.0,1800.0,9018.0,"Land fire (Brush, Bush, Pasture)",9.0,New South Wales
+1977,,"Blue Mountains, New South Wales",3.0,,11221.0,"Land fire (Brush, Bush, Pasture)",11.2,Blue Mountains
+1983,,"South Australia, Victoria",75.0,11000.0,1259795.0,"Land fire (Brush, Bush, Pasture)",1259.8,South Australia
+1985,,Southeastern,5.0,100.0,43743.0,"Land fire (Brush, Bush, Pasture)",43.7,Southeastern
+1985,,New South Wales,6.0,,52985.0,"Land fire (Brush, Bush, Pasture)",53.0,New South Wales
+1990,,"South New South Wales, North Victoria",,,,"Land fire (Brush, Bush, Pasture)",,South New South Wales
+1994,,Nouvelle Galle du Sud,4.0,26020.0,317445.0,"Land fire (Brush, Bush, Pasture)",317.4,Nouvelle Galle du Sud
+1994,,New South Wales & Queenland,,20141.0,,"Land fire (Brush, Bush, Pasture)",,New South Wales & Queenland
+1997,,North West,,,,"Land fire (Brush, Bush, Pasture)",,North West
+1997,,"From Tare To Bega, Coonabaraban",2.0,,13093.0,"Land fire (Brush, Bush, Pasture)",13.1,From Tare To Bega
+1999,,"Victoria, South Australia",1.0,2000.0,,"Land fire (Brush, Bush, Pasture)",,Victoria
+2000,,"Ashfield (A), Auburn (C), Bankstown (C), Botany Bay (C), Burwood (A), Canada Bay (A), Canterbury (C), Holroyd (C), Hunters Hill (A), Hurstville (C), Kogarah (C), Ku-ring-gai (A), Lane Cove (A), Leichhardt (A), Manly (A), Marrickville (A), Mosman (A), North Sydney (A), Parramatta (C), Pittwater (A), Randwick (C), Rockdale (C), Ryde (C), Strathfield (A), Sutherland Shire (A), Sydney (C), Warringah (A), Waverley (A), Willoughby (C), Woollahra (A) districts (New South Wales province)",,200.0,,"Land fire (Brush, Bush, Pasture)",,Ashfield (A)
+2001,,New South Wales province,,,,"Land fire (Brush, Bush, Pasture)",,New South Wales province
+2001,,"Sydney (Ashfield (A), Auburn (C), Bankstown (C), Botany Bay (C), Burwood (A), Canada Bay (A), Canterbury (C), Holroyd (C), Hunters Hill (A), Hurstville (C), Kogarah (C), Ku-ring-gai (A), Lane Cove (A), Leichhardt (A), Manly (A), Marrickville (A), Mosman (A), North Sydney (A), Parramatta (C), Pittwater (A), Randwick (C), Rockdale (C), Ryde (C), Strathfield (A), Sutherland Shire (A), Sydney (C), Warringah (A), Waverley (A), Willoughby (C), Woollahra (A) districts, New South Wales province), Canberra (Unincorporated ACT district, Australian Capital Territory province)",,4400.0,159443.0,"Land fire (Brush, Bush, Pasture)",159.4,Sydney (Ashfield (A)
+2002,,"Sydney (Ashfield (A), Auburn (C), Bankstown (C), Botany Bay (C), Burwood (A), Canada Bay (A), Canterbury (C), Holroyd (C), Hunters Hill (A), Hurstville (C), Kogarah (C), Ku-ring-gai (A), Lane Cove (A), Leichhardt (A), Manly (A), Marrickville (A), Mosman (A), North Sydney (A), Parramatta (C), Pittwater (A), Randwick (C), Rockdale (C), Ryde (C), Strathfield (A), Sutherland Shire (A), Sydney (C), Warringah (A), Waverley (A), Willoughby (C), Woollahra (A) districts, New South Wales province)",2.0,244.0,87196.0,"Land fire (Brush, Bush, Pasture)",87.2,Sydney (Ashfield (A)
+2003,,"Canberra region (Unincorporated ACT district, Australian Capital Territory province)",4.0,2650.0,511565.0,Forest fire,511.6,Canberra region (Unincorporated ACT district
+2005,,"Eyre peninsula (Ceduna (DC), Cleve (DC), Elliston (DC), Franklin Harbour (DC), Kimba (DC), Lower Eyre Peninsula (DC), Port Augusta (C), Port Lincoln (C), Streaky Bay (DC), Tumby Bay (DC), Whyalla (C), Wudinna (DC) districts, South Australia province)",12.0,220.0,64250.0,Forest fire,64.2,Eyre peninsula (Ceduna (DC)
+2006,,"Tasmania, Victoria, New South Wales provinces",1.0,60.0,77803.0,Forest fire,77.8,Tasmania
+2006,,"Blue mountains district, New South Wales province",,,,Wildfire (General),,Blue mountains district
+2006,,"Victoria, New South Wales, Tasmania provinces",3.0,81.0,77803.0,Forest fire,77.8,Victoria
+2009,,"Marysville, Kinglake, Taggerty cities (Murrindindi (S) district, Victoria province), Strathewen, St Andrews cities (Nillumbik (S) district, Victoria province), , Whittlesea city (Whittlesea district, Victoria province), Wandong city (Mitchell (S) district, Victoria province)",180.0,9954.0,1900817.0,"Land fire (Brush, Bush, Pasture)",1900.8,Marysville
+2011,,"Margaret river city (Augusta-Margaret River (S) district, Western Australia province)",,120.0,75306.0,"Land fire (Brush, Bush, Pasture)",75.3,Margaret river city (Augusta-Margaret River (S) district
+2013,,Blue Mountains (C) district (New South Wales province),2.0,990.0,360876.0,"Land fire (Brush, Bush, Pasture)",360.9,Blue Mountains (C) district (New South Wales province)
+2013,,"Dunnaley, Boomer Bay cities (Sorell (M) district, Tasmania province), Sommers Bay (Tasman district, Tasmania province), Bicheno city (Glamorgan/Spring Bay (M) district, Tasmania province); New South Wales, Victoria",1.0,450.0,131962.0,"Land fire (Brush, Bush, Pasture)",132.0,Dunnaley
+2014,,"Mickleham, Craigieburn cities (Hume district, Victoria province), Whittlesea (S), Nillumbik (S) districts (Melbourne north outskirts, Victoria province), Wallan, Kilmore, Beveridge cities (Mitchell (S) district, Victoria province), Warrandyte city (Manningham (C) district, Victoria province), Wunghnu city (Moira (S) district, Victoria province), Glenaladale, Walpa cities (East Gippsland (S) district, Victoria province), Yarram city (Wellington district, Victoria province), Morwell city (Latrobe district, Victoria province), Gisborne (Macedon Ranges district, Victoria province)",,122.0,132506.0,"Land fire (Brush, Bush, Pasture)",132.5,Mickleham
+2014,,"Kalamunda (S), Mundaring (S) districts (Perth Hills region, Western Australia province)",2.0,168.0,33126.0,"Land fire (Brush, Bush, Pasture)",33.1,Kalamunda (S)
+2015,,"Pinery, Balaklava cities (Wakefield (DC) district, North Mount Lofty Ranges, South Australia province), Roseworthy city (Light (RegC) district, South Australia province)",2.0,261.0,264697.0,"Land fire (Brush, Bush, Pasture)",264.7,Pinery
+2015,,"Sampson Flat city (Playford (C) district, South Australia province), Kersbrook (Adelaide Hills (DC) district, Mount Lofty Ranges, South Australia province)",,134.0,67498.0,"Land fire (Brush, Bush, Pasture)",67.5,Sampson Flat city (Playford (C) district
+2015,,"Wye River, Separation Creek cities (Colac-Otway (S) district, Victoria province)",,348.0,132349.0,Forest fire,132.3,Wye River
+2016,Yarloop busfires,"Yarloop, Cookernup areas (Harvey (S) district, Western Australia province), Hamel, Waroona areas (Waroona (S) district, Western Australia province)",2.0,540.0,143770.0,"Land fire (Brush, Bush, Pasture)",143.8,Yarloop busfires
+2017,Sir Ivan fire,"New South Wales states (Dunedoo, Uarbry, Pappinbarra, Dondingalong, Kempsey, Boggabri, Narrabri, Mudgee)",,143.0,25595.0,Wildfire (General),25.6,Sir Ivan fire
+2019,,Gippsland region (South-east Victoria state),,627.0,,"Land fire (Brush, Bush, Pasture)",,Gippsland region (South-east Victoria state)
+2019,Currowan,"New South Wales, Queensland; Victoria; South Australia, Western Australia",32.0,8883.0,2453978.0,"Land fire (Brush, Bush, Pasture)",2454.0,Currowan
+2021,,Perth region,,243.0,138918.0,"Land fire (Brush, Bush, Pasture)",138.9,Perth region
+2025,,"Dimbola and Wail towns, Little Desert National Park (Shire of Hindmarshand of the Wimmera region, Victoria state)",,260.0,,Wildfire (General),,Dimbola and Wail towns
+2025,,Glenlusk and Levendale (Tasmania); Markwood (Victoria); Koolewong and Bulahdelah (New South Wales),1.0,159.0,,Wildfire (General),,Glenlusk and Levendale (Tasmania); Markwood (Victoria); Koolewong and Bulahdelah (New South Wales)
+2026,,Victoria (New South Wales),1.0,780.0,,Wildfire (General),,Victoria (New South Wales)

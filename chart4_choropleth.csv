@@ -1,0 +1,6 @@
+state,event_count,total_loss_b,total_claims,state_name
+NSW,6,8.28,385840,New South Wales
+QLD,143,34.77,570358,Queensland
+SA,1,0.44,2609,South Australia
+VIC,3,0.91,57149,Victoria
+WA,2,0.54,11408,Western Australia
