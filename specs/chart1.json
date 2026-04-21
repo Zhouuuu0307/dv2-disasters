@@ -9,7 +9,7 @@
     "subtitleFontSize": 12,
     "anchor": "start"
   },
-  "data": {"url": "data/chart1_timeline.csv"},
+  "data": {"url": "../data/chart1_timeline.csv"},
   "mark": {"type": "area", "interpolate": "monotone"},
   "encoding": {
     "x": {
