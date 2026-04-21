@@ -12,10 +12,10 @@
   "projection": {
     "type": "mercator",
     "center": [
-      134,
-      -28
+      133,
+      -27
     ],
-    "scale": 580
+    "scale": 430
   },
   "layer": [
     {
