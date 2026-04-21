@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
-  "height": 420,
+  "height": 450,
   "title": {
     "text": "Tropical cyclone tracks across Australia (1980–2026)",
     "subtitle": "Each line is one cyclone. Colour shows maximum wind intensity.",
@@ -12,10 +12,10 @@
   "projection": {
     "type": "mercator",
     "center": [
-      134,
-      -25
+      133,
+      -20
     ],
-    "scale": 580
+    "scale": 430
   },
   "layer": [
     {
@@ -37,10 +37,15 @@
       "data": {
         "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart6_cyclone_tracks.csv"
       },
+      "transform": [
+        {
+          "filter": "datum.lat > -40 && datum.lat < -5 && datum.lon > 100 && datum.lon < 165"
+        }
+      ],
       "mark": {
         "type": "line",
-        "strokeWidth": 1,
-        "opacity": 0.5
+        "strokeWidth": 0.8,
+        "opacity": 0.45
       },
       "encoding": {
         "longitude": {
