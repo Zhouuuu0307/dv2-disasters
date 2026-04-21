@@ -1,3 +1,6 @@
+ JSON
+Copy
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
@@ -9,30 +12,75 @@
     "subtitleFontSize": 12,
     "anchor": "start"
   },
-  "data": {"url": "../data/chart1_timeline.csv"},
-  "mark": {"type": "area", "interpolate": "monotone"},
+  "data": {
+    "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart1_timeline.csv"
+  },
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone"
+  },
   "encoding": {
     "x": {
-      "field": "year", "type": "ordinal",
-      "axis": {"labelAngle": -45, "tickCount": 10, "title": null}
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "labelAngle": -45,
+        "tickCount": 10,
+        "title": null
+      }
     },
     "y": {
-      "field": "event_count", "type": "quantitative",
+      "field": "event_count",
+      "type": "quantitative",
       "stack": "zero",
-      "axis": {"title": "Number of events", "grid": true}
+      "axis": {
+        "title": "Number of events",
+        "grid": true
+      }
     },
     "color": {
-      "field": "disaster_type", "type": "nominal",
+      "field": "disaster_type",
+      "type": "nominal",
       "title": "Disaster type",
       "scale": {
-        "domain": ["Bushfire","Flood","Storm/Cyclone","Drought","Heatwave","Earthquake","Landslide","Other"],
-        "range":  ["#D85A30","#378ADD","#7F77DD","#BA7517","#E24B4A","#888780","#1D9E75","#B4B2A9"]
+        "domain": [
+          "Bushfire",
+          "Flood",
+          "Storm/Cyclone",
+          "Drought",
+          "Heatwave",
+          "Earthquake",
+          "Landslide",
+          "Other"
+        ],
+        "range": [
+          "#D85A30",
+          "#378ADD",
+          "#7F77DD",
+          "#BA7517",
+          "#E24B4A",
+          "#888780",
+          "#1D9E75",
+          "#B4B2A9"
+        ]
       }
     },
     "tooltip": [
-      {"field": "year", "type": "ordinal", "title": "Year"},
-      {"field": "disaster_type", "type": "nominal", "title": "Type"},
-      {"field": "event_count", "type": "quantitative", "title": "Events"}
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "disaster_type",
+        "type": "nominal",
+        "title": "Type"
+      },
+      {
+        "field": "event_count",
+        "type": "quantitative",
+        "title": "Events"
+      }
     ]
   }
 }
