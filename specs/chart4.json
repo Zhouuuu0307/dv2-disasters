@@ -9,21 +9,41 @@
     "subtitleFontSize": 12,
     "anchor": "start"
   },
-  "projection": {"type": "mercator"},
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -28
+    ],
+    "scale": 700
+  },
   "layer": [
     {
       "data": {
         "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/australia_states_simple.geojson",
-        "format": {"type": "json", "property": "features"}
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 1},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
       "transform": [
         {
           "lookup": "properties.state_name",
           "from": {
-            "data": {"url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart4_choropleth.csv"},
+            "data": {
+              "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart4_choropleth.csv"
+            },
             "key": "state_name",
-            "fields": ["total_loss_b", "event_count", "total_claims"]
+            "fields": [
+              "total_loss_b",
+              "event_count",
+              "total_claims"
+            ]
           }
         }
       ],
@@ -32,14 +52,41 @@
           "field": "total_loss_b",
           "type": "quantitative",
           "title": "Loss (A$ billion)",
-          "scale": {"scheme": "orangered", "domain": [0, 35]},
-          "condition": {"test": "datum.total_loss_b === null", "value": "#e8e6e0"}
+          "scale": {
+            "scheme": "orangered",
+            "domain": [
+              0,
+              35
+            ]
+          },
+          "condition": {
+            "test": "datum.total_loss_b === null",
+            "value": "#e8e6e0"
+          }
         },
         "tooltip": [
-          {"field": "properties.state_name", "type": "nominal", "title": "State"},
-          {"field": "total_loss_b", "type": "quantitative", "title": "Total loss (A$B)", "format": ".2f"},
-          {"field": "event_count", "type": "quantitative", "title": "Events"},
-          {"field": "total_claims", "type": "quantitative", "title": "Claims", "format": ","}
+          {
+            "field": "properties.state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "total_loss_b",
+            "type": "quantitative",
+            "title": "Total loss (A$B)",
+            "format": ".2f"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Events"
+          },
+          {
+            "field": "total_claims",
+            "type": "quantitative",
+            "title": "Claims",
+            "format": ","
+          }
         ]
       }
     }
