@@ -44,7 +44,11 @@
       },
       "transform": [
         {
-          "lookup": "properties.state_name",
+          "calculate": "datum.properties.state_name",
+          "as": "state_name"
+        },
+        {
+          "lookup": "state_name",
           "from": {
             "data": {
               "url": "https://Zhouuuu0307.github.io/dv2-disasters/data/chart4_choropleth.csv"
@@ -77,7 +81,7 @@
         },
         "tooltip": [
           {
-            "field": "properties.state_name",
+            "field": "state_name",
             "type": "nominal",
             "title": "State"
           },
