@@ -3,8 +3,8 @@
   "width": 700,
   "height": 420,
   "title": {
-    "text": "Insured disaster losses by state (1980–2026)",
-    "subtitle": "Normalised to 2022 AUD billions — ICA catastrophe data",
+    "text": "Insured disaster losses by state (1980\u20132026)",
+    "subtitle": "Normalised to 2022 AUD billions \u2014 ICA catastrophe data",
     "fontSize": 15,
     "subtitleFontSize": 12,
     "anchor": "start"
@@ -15,7 +15,7 @@
       133.5,
       -27
     ],
-    "scale": 900,
+    "scale": 650,
     "translate": [
       350,
       210
