@@ -10,12 +10,16 @@
     "anchor": "start"
   },
   "projection": {
-    "type": "mercator",
+    "type": "equirectangular",
     "center": [
-      133,
-      -20
+      133.5,
+      -22
     ],
-    "scale": 430
+    "scale": 900,
+    "translate": [
+      350,
+      225
+    ]
   },
   "layer": [
     {
@@ -39,7 +43,7 @@
       },
       "transform": [
         {
-          "filter": "datum.lat > -40 && datum.lat < -5 && datum.lon > 100 && datum.lon < 165"
+          "filter": "datum.lat > -44 && datum.lat < -5 && datum.lon > 100 && datum.lon < 165"
         }
       ],
       "mark": {
