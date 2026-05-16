@@ -10,7 +10,7 @@
     "anchor": "start"
   },
   "data": {
-    "url": "data/chart1_timeline.csv"
+    "url": "../data/chart1_timeline.csv"
   },
   "params": [
     {
