@@ -24,7 +24,7 @@
   "layer": [
     {
       "data": {
-        "url": "../data/australia_states_simple.geojson",
+        "url": "data/australia_states_simple.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -35,7 +35,7 @@
           "lookup": "properties.STATE_NAME",
           "from": {
             "data": {
-              "url": "../data/chart4_choropleth.csv"
+              "url": "data/chart4_choropleth.csv"
             },
             "key": "state_name",
             "fields": [

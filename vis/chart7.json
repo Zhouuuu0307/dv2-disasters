@@ -10,7 +10,7 @@
     "anchor": "start"
   },
   "data": {
-    "url": "../data/chart7_bushfire_decade.csv"
+    "url": "data/chart7_bushfire_decade.csv"
   },
   "resolve": {
     "scale": {

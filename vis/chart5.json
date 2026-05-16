@@ -30,7 +30,7 @@
         ]
       },
       "data": {
-        "url": "../data/australia_states_simple.geojson",
+        "url": "data/australia_states_simple.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -41,7 +41,7 @@
           "lookup": "properties.STATE_NAME",
           "from": {
             "data": {
-              "url": "../data/chart5_bushfires.csv"
+              "url": "data/chart5_bushfires.csv"
             },
             "key": "state_name",
             "fields": [
@@ -145,7 +145,7 @@
         ]
       },
       "data": {
-        "url": "../data/australia_states_simple.geojson",
+        "url": "data/australia_states_simple.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -156,7 +156,7 @@
           "lookup": "properties.STATE_NAME",
           "from": {
             "data": {
-              "url": "../data/chart5_floods.csv"
+              "url": "data/chart5_floods.csv"
             },
             "key": "state_name",
             "fields": [

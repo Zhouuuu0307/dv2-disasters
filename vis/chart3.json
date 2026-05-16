@@ -10,7 +10,7 @@
     "anchor": "start"
   },
   "data": {
-    "url": "../data/chart3_losses.csv"
+    "url": "data/chart3_losses.csv"
   },
   "transform": [
     {

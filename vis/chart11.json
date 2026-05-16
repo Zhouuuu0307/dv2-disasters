@@ -10,7 +10,7 @@
     "anchor": "start"
   },
   "data": {
-    "url": "../data/chart11_temp_disasters.csv"
+    "url": "data/chart11_temp_disasters.csv"
   },
   "transform": [
     {

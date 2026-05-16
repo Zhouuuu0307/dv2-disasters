@@ -24,7 +24,7 @@
   "layer": [
     {
       "data": {
-        "url": "../data/australia_states_simple.geojson",
+        "url": "data/australia_states_simple.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -39,7 +39,7 @@
     },
     {
       "data": {
-        "url": "../data/chart6_cyclone_tracks.csv"
+        "url": "data/chart6_cyclone_tracks.csv"
       },
       "transform": [
         {
