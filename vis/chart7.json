@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 300,
+  "title": {
+    "text": "Australia's bushfires: more events, more destruction",
+    "subtitle": "Bushfire events per decade (bars) and total damage (line, USD millions)",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {
+    "url": "../data/chart7_bushfire_decade.csv"
+  },
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#D85A30",
+        "opacity": 0.75
+      },
+      "encoding": {
+        "x": {
+          "field": "decade_label",
+          "type": "ordinal",
+          "title": "Decade",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "event_count",
+          "type": "quantitative",
+          "axis": {
+            "title": "Number of bushfire events",
+            "titleColor": "#D85A30",
+            "grid": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "decade_label",
+            "type": "nominal",
+            "title": "Decade"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Events"
+          },
+          {
+            "field": "total_deaths",
+            "type": "quantitative",
+            "title": "Deaths"
+          },
+          {
+            "field": "total_damage_m_usd",
+            "type": "quantitative",
+            "title": "Damage (USD M)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#444441",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 60,
+          "color": "#444441"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "decade_label",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "total_damage_m_usd",
+          "type": "quantitative",
+          "axis": {
+            "title": "Total damage (USD millions)",
+            "titleColor": "#444441"
+          }
+        }
+      }
+    }
+  ]
+}

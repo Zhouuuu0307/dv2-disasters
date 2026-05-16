@@ -1,0 +1,234 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where do bushfires and floods strike? (1939\u20132024)",
+    "subtitle": "Number of recorded events by state \u2014 bushfires dominate the south, floods dominate the east",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "hconcat": [
+    {
+      "width": 320,
+      "height": 320,
+      "title": {
+        "text": "Bushfires",
+        "fontSize": 13,
+        "color": "#D85A30",
+        "anchor": "middle"
+      },
+      "projection": {
+        "type": "equirectangular",
+        "center": [
+          134,
+          -28
+        ],
+        "scale": 360,
+        "translate": [
+          160,
+          160
+        ]
+      },
+      "data": {
+        "url": "../data/australia_states_simple.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "../data/chart5_bushfires.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "event_count",
+              "total_deaths"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "state_pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "properties.STATE_NAME"
+            ],
+            "toggle": "false",
+            "clear": "dblclick"
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape"
+      },
+      "encoding": {
+        "color": {
+          "field": "event_count",
+          "type": "quantitative",
+          "title": "Events",
+          "scale": {
+            "scheme": "oranges",
+            "domain": [
+              0,
+              20
+            ]
+          }
+        },
+        "stroke": {
+          "condition": {
+            "param": "state_pick",
+            "empty": false,
+            "value": "#3a1a0a"
+          },
+          "value": "#ffffff"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "state_pick",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1
+        },
+        "opacity": {
+          "condition": {
+            "param": "state_pick",
+            "empty": true,
+            "value": 1.0
+          },
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Bushfire events"
+          },
+          {
+            "field": "total_deaths",
+            "type": "quantitative",
+            "title": "Total deaths"
+          }
+        ]
+      }
+    },
+    {
+      "width": 320,
+      "height": 320,
+      "title": {
+        "text": "Floods",
+        "fontSize": 13,
+        "color": "#378ADD",
+        "anchor": "middle"
+      },
+      "projection": {
+        "type": "equirectangular",
+        "center": [
+          134,
+          -28
+        ],
+        "scale": 360,
+        "translate": [
+          160,
+          160
+        ]
+      },
+      "data": {
+        "url": "../data/australia_states_simple.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "../data/chart5_floods.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "event_count",
+              "total_deaths"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape"
+      },
+      "encoding": {
+        "color": {
+          "field": "event_count",
+          "type": "quantitative",
+          "title": "Events",
+          "scale": {
+            "scheme": "blues",
+            "domain": [
+              0,
+              40
+            ]
+          }
+        },
+        "stroke": {
+          "condition": {
+            "param": "state_pick",
+            "empty": false,
+            "value": "#0a1a3a"
+          },
+          "value": "#ffffff"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "state_pick",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1
+        },
+        "opacity": {
+          "condition": {
+            "param": "state_pick",
+            "empty": true,
+            "value": 1.0
+          },
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Flood events"
+          },
+          {
+            "field": "total_deaths",
+            "type": "quantitative",
+            "title": "Total deaths"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

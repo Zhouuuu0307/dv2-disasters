@@ -1,0 +1,9 @@
+disaster_type,event_count,total_deaths,total_affected
+Storm/Cyclone,90,274.0,4219704.0
+Flood,74,294.0,601721.0
+Bushfire,38,415.0,96198.0
+Drought,11,600.0,7080000.0
+Heatwave,7,509.0,4602784.0
+Earthquake,3,12.0,11430.0
+Other,3,0.0,2016.0
+Landslide,2,28.0,101.0

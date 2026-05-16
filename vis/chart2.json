@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 380,
+  "height": 280,
+  "title": {
+    "text": "Deaths by disaster type (1960\u20132024)",
+    "subtitle": "Drought and heatwaves quietly kill more than the dramatic disasters.",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {
+    "url": "../data/chart2_donut.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.total_deaths > 0"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "disaster_type",
+          "type": "nominal",
+          "sort": "-x",
+          "axis": {
+            "title": null,
+            "labelFontSize": 12,
+            "labelFontWeight": 500
+          }
+        },
+        "x": {
+          "field": "total_deaths",
+          "type": "quantitative",
+          "axis": {
+            "title": "Total deaths",
+            "grid": true
+          }
+        },
+        "color": {
+          "field": "disaster_type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Bushfire",
+              "Flood",
+              "Storm/Cyclone",
+              "Drought",
+              "Heatwave",
+              "Earthquake",
+              "Landslide",
+              "Other"
+            ],
+            "range": [
+              "#D85A30",
+              "#378ADD",
+              "#7F77DD",
+              "#BA7517",
+              "#E24B4A",
+              "#888780",
+              "#1D9E75",
+              "#B4B2A9"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "disaster_type",
+            "type": "nominal",
+            "title": "Type"
+          },
+          {
+            "field": "total_deaths",
+            "type": "quantitative",
+            "title": "Deaths"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Events"
+          },
+          {
+            "field": "total_affected",
+            "type": "quantitative",
+            "title": "People affected",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 11,
+        "fontWeight": 500,
+        "color": "#1a1917"
+      },
+      "encoding": {
+        "y": {
+          "field": "disaster_type",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "total_deaths",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "total_deaths",
+          "type": "quantitative",
+          "format": ","
+        }
+      }
+    }
+  ]
+}

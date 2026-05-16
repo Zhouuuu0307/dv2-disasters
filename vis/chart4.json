@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 420,
+  "title": {
+    "text": "Insured disaster losses by state (1980\u20132026)",
+    "subtitle": "Normalised to 2022 AUD billions \u2014 ICA catastrophe data",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "projection": {
+    "type": "equirectangular",
+    "center": [
+      133.5,
+      -27
+    ],
+    "scale": 650,
+    "translate": [
+      350,
+      210
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "../data/australia_states_simple.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "../data/chart4_choropleth.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "total_loss_b",
+              "event_count",
+              "total_claims"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "state_hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "properties.STATE_NAME"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape"
+      },
+      "encoding": {
+        "color": {
+          "field": "total_loss_b",
+          "type": "quantitative",
+          "title": "Loss (A$B)",
+          "scale": {
+            "scheme": "orangered",
+            "domain": [
+              0,
+              35
+            ]
+          },
+          "condition": {
+            "test": "!isValid(datum.total_loss_b)",
+            "value": "#d8d5cc"
+          }
+        },
+        "stroke": {
+          "condition": {
+            "param": "state_hover",
+            "empty": false,
+            "value": "#3a1a0a"
+          },
+          "value": "#ffffff"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "state_hover",
+            "empty": false,
+            "value": 2.5
+          },
+          "value": 1
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "total_loss_b",
+            "type": "quantitative",
+            "title": "Loss (A$B)",
+            "format": ".2f"
+          },
+          {
+            "field": "event_count",
+            "type": "quantitative",
+            "title": "Events"
+          },
+          {
+            "field": "total_claims",
+            "type": "quantitative",
+            "title": "Claims",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ]
+}

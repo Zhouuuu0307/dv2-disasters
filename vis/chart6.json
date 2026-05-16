@@ -1,0 +1,172 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "title": {
+    "text": "Tropical cyclones that struck Australia (1980\u20132026)",
+    "subtitle": "460 cyclones tracked. Colour shows lifetime maximum intensity (BOM scale).",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "projection": {
+    "type": "equirectangular",
+    "center": [
+      133.5,
+      -22
+    ],
+    "scale": 580,
+    "translate": [
+      350,
+      240
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "../data/australia_states_simple.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e3d6",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "../data/chart6_cyclone_tracks.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.lat > -42 && datum.lat < -5 && datum.lon > 105 && datum.lon < 162"
+        }
+      ],
+      "params": [
+        {
+          "name": "cat_filter",
+          "select": {
+            "type": "point",
+            "fields": [
+              "category"
+            ]
+          },
+          "bind": "legend"
+        },
+        {
+          "name": "cyc_hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "id"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "id",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "category",
+          "type": "ordinal",
+          "title": "Intensity (lifetime max wind):",
+          "sort": [
+            "Cat 1",
+            "Cat 2",
+            "Cat 3",
+            "Cat 4",
+            "Cat 5"
+          ],
+          "scale": {
+            "domain": [
+              "Cat 1",
+              "Cat 2",
+              "Cat 3",
+              "Cat 4",
+              "Cat 5"
+            ],
+            "range": [
+              "#fee5d9",
+              "#fcae91",
+              "#fb6a4a",
+              "#de2d26",
+              "#7a0177"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "titleFontSize": 11,
+            "labelFontSize": 11,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4
+          }
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "cyc_hover",
+              "empty": false,
+              "value": 1.0
+            },
+            {
+              "param": "cat_filter",
+              "value": 0.55
+            }
+          ],
+          "value": 0.08
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "cyc_hover",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1.2
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Name"
+          },
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year"
+          },
+          {
+            "field": "category",
+            "type": "nominal",
+            "title": "Category"
+          },
+          {
+            "field": "max_wind_kmh",
+            "type": "quantitative",
+            "title": "Peak wind (km/h)"
+          }
+        ]
+      }
+    }
+  ]
+}

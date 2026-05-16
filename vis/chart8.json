@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 320,
+  "title": {
+    "text": "Major bushfire events in Australia (1939\u20132026)",
+    "subtitle": "Bubble size = economic damage",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {
+    "url": "../data/chart8_bushfire_events.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.deaths > 0"
+    }
+  ],
+  "params": [
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "on": "mouseover",
+        "clear": "mouseout",
+        "nearest": true
+      }
+    }
+  ],
+  "mark": {
+    "type": "point",
+    "filled": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {
+        "title": "Year",
+        "format": "d"
+      },
+      "scale": {
+        "domain": [
+          1935,
+          2030
+        ]
+      }
+    },
+    "y": {
+      "field": "deaths",
+      "type": "quantitative",
+      "axis": {
+        "title": "Deaths",
+        "grid": true
+      }
+    },
+    "size": {
+      "field": "damage_m_usd",
+      "type": "quantitative",
+      "title": "Damage (USD M)",
+      "scale": {
+        "range": [
+          30,
+          1200
+        ]
+      },
+      "legend": null
+    },
+    "color": {
+      "value": "#D85A30"
+    },
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "empty": true,
+        "value": 0.7
+      },
+      "value": 0.95
+    },
+    "stroke": {
+      "condition": {
+        "param": "hover",
+        "empty": false,
+        "value": "#3a1a0a"
+      },
+      "value": null
+    },
+    "strokeWidth": {
+      "condition": {
+        "param": "hover",
+        "empty": false,
+        "value": 2
+      },
+      "value": 0
+    },
+    "tooltip": [
+      {
+        "field": "event_label",
+        "type": "nominal",
+        "title": "Location"
+      },
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year"
+      },
+      {
+        "field": "deaths",
+        "type": "quantitative",
+        "title": "Deaths"
+      },
+      {
+        "field": "damage_m_usd",
+        "type": "quantitative",
+        "title": "Damage (USD M)",
+        "format": ",.0f"
+      }
+    ]
+  }
+}
